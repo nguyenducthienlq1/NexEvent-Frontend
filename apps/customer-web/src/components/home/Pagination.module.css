@@ -1,0 +1,41 @@
+.pager {
+  background: #fff;
+  border-top: 0.5px solid var(--n200);
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+}
+
+.pg {
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius);
+  font-size: 12px;
+  border: 0.5px solid var(--n200);
+  color: var(--n600);
+  cursor: pointer;
+  background: #fff;
+  font-family: var(--font-sans);
+  transition: all 0.15s;
+}
+
+.pg:hover:not(:disabled):not(.pgOn) {
+  border-color: var(--n400);
+  color: var(--n900);
+}
+
+.pg:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
+.pgOn {
+  background: var(--g400);
+  color: #fff;
+  border-color: var(--g400);
+}
