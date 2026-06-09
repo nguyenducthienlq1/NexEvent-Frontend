@@ -1,0 +1,25 @@
+.loadingState,
+.emptyState,
+.errorState {
+  padding: 60px 20px;
+  text-align: center;
+  color: var(--n600);
+  font-size: 13px;
+  background: var(--n50);
+}
+
+.spinner {
+  width: 28px;
+  height: 28px;
+  border: 2.5px solid var(--n200);
+  border-top-color: var(--g400);
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+  margin: 0 auto 10px;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
