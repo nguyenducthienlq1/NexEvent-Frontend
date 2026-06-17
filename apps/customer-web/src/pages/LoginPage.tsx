@@ -1,4 +1,4 @@
-import { useState, useId } from "react";
+import { useState, useId, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import {
   IconMail,
@@ -27,23 +27,21 @@ function getErrorMessage(error: unknown): string {
 export default function LoginPage() {
   const id = useId();
   const navigate = useNavigate();
-
-  // Redirect if already authenticated
   const user = useAuthStore((s) => s.user);
-  if (user) {
-    navigate("/", { replace: true });
-    return null;
-  }
-
   const { mutate: login, isPending, error, isError } = useLogin();
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPass, setShowPass] = useState(false);
   const [remember, setRemember] = useState(false);
-
-  // Field-level validation
   const [touched, setTouched] = useState({ email: false, password: false });
+
+  // Redirect if already authenticated
+  useEffect(() => {
+    if (user) {
+      navigate("/", { replace: true });
+    }
+  }, [user, navigate]);
   const emailInvalid = touched.email && !email.trim();
   const passwordInvalid = touched.password && password.length < 6;
 
