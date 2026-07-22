@@ -1,10 +1,8 @@
-import MainLayout from "../layouts/MainLayout";
-
 const Home = () => {
   return (
-    <MainLayout>
-      <h1>Trang chủ</h1>
-    </MainLayout>
+    <main>
+      <div className="items-center text-center text-xl"> Trang chủ </div>
+    </main>
   );
 };
 export default Home;
