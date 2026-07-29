@@ -1,0 +1,665 @@
+.loginShell {
+  min-height: 100svh;
+  display: grid;
+  place-items: center;
+  padding: 32px;
+}
+
+.loginPanel {
+  width: min(920px, 100%);
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 32px;
+  align-items: center;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 36px;
+}
+
+.loginPanel h1 {
+  margin: 0;
+  font-size: 24px;
+  letter-spacing: -0.01em;
+  font-weight: 600;
+}
+
+.topbar h1 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  letter-spacing: -0.01em;
+}
+
+.loginForm,
+.panel,
+.pageStack,
+.checkinPanel {
+  display: flex;
+  flex-direction: column;
+}
+
+.loginForm {
+  gap: 14px;
+}
+
+.appShell {
+  min-height: 100svh;
+  display: flex;
+  flex-direction: row;
+}
+
+/* ─── Sidebar ─── */
+.sidebar {
+  position: sticky;
+  top: 0;
+  height: 100svh;
+  width: 240px;
+  display: flex;
+  flex-direction: column;
+  background: var(--surface);
+  border-right: 1px solid var(--border);
+  padding: 24px 16px;
+  z-index: 50;
+  flex-shrink: 0;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 32px;
+  padding: 0 8px;
+}
+
+.brandMark {
+  width: 32px;
+  height: 32px;
+  display: grid;
+  place-items: center;
+  border-radius: var(--radius-sm);
+  background: var(--primary);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.brand strong {
+  display: block;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.brand span {
+  display: block;
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+.sidebarNavGroup {
+  margin-bottom: 24px;
+}
+
+.sidebarNavGroup h3 {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--muted);
+  margin: 0 8px 8px;
+}
+
+.navList {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.navItem {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--text-secondary);
+  transition:
+    background var(--transition-fast),
+    color var(--transition-fast);
+  text-align: left;
+  position: relative;
+}
+
+.navItem:hover {
+  background: var(--bg);
+  color: var(--text);
+}
+
+.navItem.active {
+  color: var(--text);
+  font-weight: 500;
+}
+
+.navItem.active::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 4px;
+  bottom: 4px;
+  width: 3px;
+  background: var(--primary);
+  border-radius: 0 2px 2px 0;
+}
+
+.navItem span {
+  font-size: 14px;
+}
+
+.navItem small {
+  display: none;
+}
+
+.sidebarFooter {
+  margin-top: auto;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.sidebarFooter span {
+  font-size: 13px;
+  color: var(--text-secondary);
+  padding: 0 8px;
+}
+
+/* ─── Main Workspace & Header ─── */
+.workspace {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+  padding: 0 32px;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+}
+
+.topbarLeft {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.topbarActions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.pageContent {
+  padding: 32px;
+  flex: 1;
+  overflow-y: auto;
+}
+
+.pageStack {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.constrainedPage {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.constrainedPage.splitGrid {
+  display: grid;
+}
+
+.actionBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 24px;
+  margin-top: 8px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border);
+}
+
+.actionBar h2 {
+  font-size: 24px;
+  font-weight: 600;
+  margin: 0 0 8px;
+  color: var(--text);
+}
+
+.actionBar p {
+  margin: 0;
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+/* ─── KPI Container ─── */
+.kpiPanel {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.kpiItem {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+}
+
+.kpiLabel {
+  font-size: 13px;
+  color: var(--text-secondary);
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+.kpiValue {
+  font-size: 28px;
+  font-weight: 600;
+  color: var(--text);
+  line-height: 1.1;
+  margin-bottom: 4px;
+}
+
+.kpiSub {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.kpiSub.positive {
+  color: var(--success);
+}
+
+.kpiSub.negative {
+  color: var(--danger);
+}
+
+/* ─── Panels ─── */
+.splitGrid {
+  display: grid;
+  grid-template-columns: 7fr 5fr;
+  gap: 24px;
+}
+
+.panel {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  gap: 20px;
+}
+
+.panelHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.panelHeader h2 {
+  margin: 0 0 4px;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.panelHeader p,
+.readiness p,
+.muted {
+  margin: 0;
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+
+.tablePanel {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: auto;
+}
+
+/* ─── Tables ─── */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 880px;
+}
+
+th,
+td {
+  text-align: left;
+  padding: 0 16px;
+  height: 48px;
+  border-bottom: 1px solid var(--border);
+  vertical-align: middle;
+  font-size: 13px;
+}
+
+th {
+  color: var(--text-secondary);
+  background: var(--bg);
+  font-size: 12px;
+  font-weight: 500;
+}
+
+tr:last-child td {
+  border-bottom: none;
+}
+
+td strong {
+  display: block;
+  font-weight: 500;
+}
+
+/* ─── Components ─── */
+.entityCell {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.entityCell img {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-sm);
+  object-fit: cover;
+  background: var(--bg);
+  border: 1px solid var(--border);
+}
+
+.subtleText {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.primaryButton,
+.ghostButton,
+.dangerButton {
+  min-height: 36px;
+  border-radius: var(--radius-md);
+  padding: 0 16px;
+  font-weight: 500;
+  font-size: 13px;
+  transition: all var(--transition-fast);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  width: max-content;
+  flex-shrink: 0;
+}
+
+.primaryButton {
+  background: var(--primary);
+  border: 1px solid var(--primary);
+  color: #fff;
+}
+
+.primaryButton:hover {
+  background: var(--primary-hover);
+  border-color: var(--primary-hover);
+}
+
+.primaryButton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.ghostButton {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text);
+}
+
+.ghostButton:hover {
+  background: var(--bg);
+  color: var(--text);
+}
+
+.dangerButton {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--danger);
+}
+
+.dangerButton:hover {
+  background: var(--danger-soft);
+  border-color: var(--danger);
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  min-height: 36px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: var(--surface);
+  color: var(--text);
+  padding: 8px 12px;
+  outline: none;
+  font-size: 13px;
+  transition: border-color var(--transition-fast);
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: var(--text);
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  color: var(--text);
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.formGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.spanTwo {
+  grid-column: 1 / -1;
+}
+
+/* ─── Badges & Status ─── */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 22px;
+  border-radius: var(--radius-sm);
+  padding: 0 8px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.badge.good {
+  color: var(--success);
+  background: var(--success-soft);
+}
+
+.badge.danger {
+  color: var(--danger);
+  background: var(--danger-soft);
+}
+
+.badge.neutral {
+  color: var(--text-secondary);
+  background: var(--bg);
+  border: 1px solid var(--border);
+}
+
+.statusDot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  margin-right: 6px;
+}
+
+.statusDot.success {
+  background: var(--success);
+}
+
+.statusDot.warning {
+  background: var(--warning);
+}
+
+.statusDot.danger {
+  background: var(--danger);
+}
+
+.statusDot.neutral {
+  background: var(--muted);
+}
+
+/* ─── Specific Layouts ─── */
+.readiness dl,
+.detailList {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin: 16px 0 0;
+}
+
+.readiness dt,
+.detailList dt {
+  color: var(--text-secondary);
+  font-size: 12px;
+}
+
+.readiness dd,
+.detailList dd {
+  margin: 4px 0 0;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.miniRows {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.miniRow {
+  display: grid;
+  gap: 6px;
+}
+
+.miniRowHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.miniRowHeader strong {
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.miniRowHeader span {
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+
+.progressTrack {
+  height: 6px;
+  border-radius: 3px;
+  background: var(--bg);
+  overflow: hidden;
+}
+
+.progressTrack span {
+  display: block;
+  height: 100%;
+  background: var(--text);
+}
+
+.endpoint {
+  display: block;
+  overflow-wrap: anywhere;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 12px;
+  color: var(--text);
+  font-family: monospace;
+  font-size: 12px;
+}
+
+.emptyState {
+  display: grid;
+  place-items: center;
+  gap: 8px;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.emptyState span {
+  color: var(--text-secondary);
+  font-size: 13px;
+}
+
+/* ─── Responsiveness ─── */
+@media (max-width: 1024px) {
+  .splitGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .appShell {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    height: auto;
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+    position: static;
+    padding: 16px;
+  }
+
+  .kpiPanel {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .topbar {
+    padding: 0 16px;
+  }
+
+  .pageContent {
+    padding: 16px;
+  }
+}

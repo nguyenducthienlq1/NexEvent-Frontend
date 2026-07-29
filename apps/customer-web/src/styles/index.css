@@ -1,0 +1,226 @@
+/* ─── Google Fonts ──────────────────────────────────────────────── */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap");
+
+/* ─── Design System Tokens ──────────────────────────────────────── */
+:root {
+  /* Emerald palette (high saturation pop) */
+  --g50: #ecfdf5;
+  --g100: #d1fae5;
+  --g200: #a7f3d0;
+  --g300: #6ee7b7;
+  --g400: #34d399;
+  --g500: #10b981;
+  --g600: #059669;
+  --g700: #047857;
+  --g800: #065f46;
+  --g900: #064e3b;
+
+  /* Brand Accents */
+  --brand-primary: var(--g500);
+  --brand-primary-hover: var(--g600);
+  --brand-secondary: #0f172a; /* Deep slate */
+
+  /* Semantic Colors */
+  --danger-100: #fee2e2;
+  --danger-500: #ef4444;
+  --danger-600: #dc2626;
+  --warning-100: #fef3c7;
+  --warning-500: #f59e0b;
+  --success-100: #d1fae5;
+  --success-500: #10b981;
+
+  /* Pure Monochrome palette - crisp cool gray / black */
+  --n50: #ffffff;
+  --n100: #f8fafc; /* Slate 50 */
+  --n200: #f1f5f9; /* Slate 100 */
+  --n300: #e2e8f0; /* Slate 200 */
+  --n400: #cbd5e1; /* Slate 300 */
+  --n500: #94a3b8; /* Slate 400 */
+  --n600: #64748b; /* Slate 500 */
+  --n700: #475569; /* Slate 600 */
+  --n800: #334155; /* Slate 700 */
+  --n900: #0f172a; /* Slate 900 */
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg:
+    0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --shadow-xl:
+    0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  --shadow-glow: 0 0 20px rgba(16, 185, 129, 0.4);
+
+  /* Border radius */
+  --radius-sm: 6px;
+  --radius: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-full: 9999px;
+
+  /* Transitions */
+  --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-normal: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 500ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Font */
+  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+
+  /* Layout */
+  --max-width: 1200px;
+  --header-height: 80px;
+}
+
+/* ─── Reset & Base ──────────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  font-size: 16px;
+  background: var(--n50);
+  color: var(--n900);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.5;
+  overflow-x: hidden;
+}
+
+#root {
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+}
+
+button {
+  font-family: var(--font-sans);
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+img,
+video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ─── Typography ────────────────────────────────────────────────── */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--n900);
+}
+
+h1 {
+  font-size: 2.5rem;
+  letter-spacing: -0.02em;
+}
+h2 {
+  font-size: 2rem;
+  letter-spacing: -0.01em;
+}
+h3 {
+  font-size: 1.5rem;
+}
+h4 {
+  font-size: 1.25rem;
+}
+
+/* ─── Utility Classes ───────────────────────────────────────────── */
+.glass {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.glass-dark {
+  background: rgba(15, 23, 42, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: white;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ─── Global App Error ──────────────────────────────────────────── */
+.appError {
+  min-height: 100svh;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: var(--n100);
+}
+
+.appErrorPanel {
+  width: min(420px, 100%);
+  padding: 32px;
+  background: #fff;
+  border: 1px solid var(--n200);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-xl);
+  text-align: center;
+}
+
+.appErrorEyebrow {
+  margin: 0 0 8px;
+  color: var(--danger-500);
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.appErrorPanel h1 {
+  margin: 0 0 12px;
+  font-size: 24px;
+}
+
+.appErrorPanel p {
+  margin: 0 0 24px;
+  color: var(--n600);
+  line-height: 1.6;
+}
+
+.appErrorPanel button {
+  min-height: 44px;
+  border-radius: var(--radius);
+  padding: 0 24px;
+  background: var(--brand-secondary);
+  color: #fff;
+  font-weight: 600;
+  transition: all var(--transition-fast);
+}
+
+.appErrorPanel button:hover {
+  background: var(--n800);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
