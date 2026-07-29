@@ -1,0 +1,26 @@
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: all var(--transition-normal);
+}
+
+.interactive:hover {
+  border-color: var(--text-secondary);
+}
+
+.header {
+  padding: 20px 24px 0;
+}
+
+.body {
+  padding: 24px;
+}
+
+.footer {
+  padding: 0 24px 24px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
