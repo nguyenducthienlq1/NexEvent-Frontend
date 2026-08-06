@@ -1,4 +1,5 @@
 import axiosInstance from "@/lib/apiClient";
+import type { ApiResponse } from "@/../../packages/types/api";
 import type {
   Event,
   EventRequest,
@@ -7,19 +8,21 @@ import type {
 
 export const eventApi = {
   getAll: (params?: { page?: number; size?: number; sortBy?: string }) =>
-    axiosInstance.get<Page<Event>>("/events", { params }),
+    axiosInstance.get<ApiResponse<Page<Event>>>("/events", { params }),
 
   search: (keyword: string, params?: { page?: number; size?: number }) =>
-    axiosInstance.get<Page<Event>>("/events/search", {
+    axiosInstance.get<ApiResponse<Page<Event>>>("/events/search", {
       params: { keyword, ...params },
     }),
 
-  getById: (id: number) => axiosInstance.get<Event>(`/events/${id}`),
+  getById: (id: number) =>
+    axiosInstance.get<ApiResponse<Event>>(`/events/${id}`),
 
-  create: (data: EventRequest) => axiosInstance.post<Event>("/events", data),
+  create: (data: EventRequest) =>
+    axiosInstance.post<ApiResponse<Event>>("/events", data),
 
   update: (id: number, data: Partial<EventRequest>) =>
-    axiosInstance.patch<Event>(`/events/${id}`, data),
+    axiosInstance.patch<ApiResponse<Event>>(`/events/${id}`, data),
 
   delete: (id: number) => axiosInstance.delete(`/events/${id}`),
 };

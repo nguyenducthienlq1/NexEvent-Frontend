@@ -1,4 +1,5 @@
 import axiosInstance from "@/lib/apiClient";
+import type { ApiResponse } from "@/../../packages/types/api";
 import type {
   OrderRequest,
   OrderResponse,
@@ -27,16 +28,19 @@ export const ticketTypeApi = {
     eventId: number,
     params?: { page?: number; size?: number; sortBy?: string },
   ) =>
-    axiosInstance.get<Page<TicketType>>(`/events/${eventId}/ticket-types`, {
-      params,
-    }),
+    axiosInstance.get<ApiResponse<Page<TicketType>>>(
+      `/events/${eventId}/ticket-types`,
+      {
+        params,
+      },
+    ),
 
   // Admin only
   getAllByEventAdmin: (
     eventId: number,
     params?: { page?: number; size?: number; sortBy?: string },
   ) =>
-    axiosInstance.get<Page<TicketType>>(
+    axiosInstance.get<ApiResponse<Page<TicketType>>>(
       `/admin/events/${eventId}/ticket-types`,
       {
         params,

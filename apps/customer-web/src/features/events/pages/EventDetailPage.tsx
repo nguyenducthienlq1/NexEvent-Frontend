@@ -7,7 +7,6 @@ import {
   useTicketTypes,
 } from "@/features/events/hooks/useEvents";
 import { orderApi } from "@/features/orders/api/order.api";
-import type { TicketType } from "@/features/orders/types/order.types";
 import { Button } from "@/components/ui/Button";
 import styles from "./EventDetailPage.module.css";
 
@@ -53,7 +52,7 @@ export default function EventDetailPage() {
   });
 
   const event = eventQuery.data;
-  const tickets: TicketType[] = ticketsQuery.data || [];
+  const tickets = useMemo(() => ticketsQuery.data || [], [ticketsQuery.data]);
 
   const handleQtyChange = (ticketId: number, delta: number) => {
     setQuantities((prev) => {
@@ -75,7 +74,7 @@ export default function EventDetailPage() {
   const handleBook = () => {
     if (totalItems === 0) return;
     const items = Object.entries(quantities)
-      .filter(([_, qty]) => qty > 0)
+      .filter(([, qty]) => qty > 0)
       .map(([ticketTypeId, quantity]) => ({
         ticketTypeId: Number(ticketTypeId),
         quantity,

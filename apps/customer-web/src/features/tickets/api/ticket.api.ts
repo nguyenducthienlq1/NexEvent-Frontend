@@ -4,11 +4,13 @@ import type {
   StatusTicket,
 } from "@/features/tickets/types/ticket.types";
 import type { Page } from "@/features/events/types/event.types";
+import type { ApiResponse } from "@/../../packages/types/api";
 
 export const ticketApi = {
   getMyTickets: (params?: {
     status?: StatusTicket;
     page?: number;
     size?: number;
-  }) => axiosInstance.get<Page<MyTicket>>("/ticket/me", { params }),
+  }) =>
+    axiosInstance.get<ApiResponse<Page<MyTicket>>>("/ticket/me", { params }),
 };

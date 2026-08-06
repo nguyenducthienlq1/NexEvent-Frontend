@@ -10,6 +10,7 @@ import CategoryFilter, {
 import EventGrid from "@/features/events/components/EventGrid";
 import Pagination from "@/features/events/components/Pagination";
 import styles from "./HomePage.module.css";
+import type { Event } from "../types/event.types";
 
 const PAGE_SIZE = 9;
 
@@ -37,7 +38,7 @@ export default function HomePage() {
   const featuredEvent = events[0];
 
   const uniqueLocations = new Set(
-    events.map((e: any) => e.location).filter(Boolean),
+    events.map((e: Event) => e.location).filter(Boolean),
   ).size;
 
   const handlePageChange = (newPage: number) => {

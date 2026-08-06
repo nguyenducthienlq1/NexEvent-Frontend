@@ -9,7 +9,6 @@ export function useMyTickets(params?: {
 }) {
   return useQuery({
     queryKey: ["my-tickets", params],
-    queryFn: () =>
-      ticketApi.getMyTickets(params).then((r) => (r.data as any).data),
+    queryFn: () => ticketApi.getMyTickets(params).then((r) => r.data.data),
   });
 }
